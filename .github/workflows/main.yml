@@ -21,3 +21,7 @@ jobs:
       - run: |
           docker build . -t pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
           docker push pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: gitaction-poc
+          images: pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
