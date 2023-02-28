@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: azure/docker-login@v1
         with:
-           login-server: ${{ secrets.ACR_ENDPOINT }}
-           username: ${{ secrets.ACR_USERNAME }}
-           password: ${{ secrets.ACR_PASSWORD }}
+           login-server: pricingdbnonpacr.azurecr.io
+           username: b92c84a7-3631-4447-bcd9-d684e9776e62
+           password: 2LcWCt7ZDKBGwUsj4x7mqb+QY57G4Wkw
       - run: |
-          docker build . -t ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
+          docker build . -t pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha}}
+          docker push pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha}}
