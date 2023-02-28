@@ -19,5 +19,5 @@ jobs:
            username: pricingdbnonpacr
            password: 2LcWCt7ZDKBGwUsj4x7mqb+QY57G4Wkw
       - run:
-          docker build . -t pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha}}
-          docker push pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha}}
+          docker build . -t pricingdbnonpacr.azurecr.io/pricingdb-ui:${{github.sha}}
+          docker push pricingdbnonpacr.azurecr.io/pricingdb-ui:${{github.sha}}
