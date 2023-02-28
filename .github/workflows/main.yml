@@ -21,11 +21,8 @@ jobs:
       - run: |
           docker build . -t pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
           docker push pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
-      - name: 'Login via Azure'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: azure/webapps-deploy@v2
         with:
           app-name: gitaction-poc
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: pricingdbnonpacr.azurecr.io/pricingdb-ui:${{ github.sha }}
