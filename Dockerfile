@@ -22,4 +22,6 @@ WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/target/${JAR_NAME}.jar ./app.jar
 
+EXPOSE 8080
+
 CMD ["java","-jar", "./app.jar"]
